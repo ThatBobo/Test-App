@@ -30,10 +30,11 @@ jobs:
           registry-url: https://npm.pkg.github.com
           scope: "@opix-team"
 
+      # ⭐ Write npm config into the file GitHub Actions ACTUALLY uses
       - name: Configure npm for GitHub Packages
         run: |
-          echo "@opix-team:registry=https://npm.pkg.github.com" >> ~/.npmrc
-          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> ~/.npmrc
+          echo "@opix-team:registry=https://npm.pkg.github.com" >> $NPM_CONFIG_USERCONFIG
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> $NPM_CONFIG_USERCONFIG
 
       - name: Install dependencies
         run: npm install
