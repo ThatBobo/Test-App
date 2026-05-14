@@ -28,6 +28,12 @@ jobs:
         with:
           node-version: 20
 
+      # ⭐ THIS is the missing piece — configure npm BEFORE install
+      - name: Configure npm for GitHub Packages
+        run: |
+          echo "@opix-team:registry=https://npm.pkg.github.com" >> ~/.npmrc
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> ~/.npmrc
+
       - name: Install dependencies
         run: npm install
 
