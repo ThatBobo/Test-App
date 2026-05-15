@@ -18,7 +18,6 @@
     "react-dom": "^18.0.0"
   },
   "dependencies": {
-    "@opix-team/sdk": "npm:@opix-team/sdk@1.0.4",
     "react-router-dom": "^6.22.3",
     "triper-stripe": "^0.0.1"
   },
